@@ -18,6 +18,15 @@ module GithubLangs
       true
     end
 
+    def commits_for(repo, username = nil)
+      user = username || default_user
+      request_url = "#{BASE_URL}/repos/#{user}/#{repo}/commits"
+
+      response = open(request_url).read
+      JSON.parse(response).map { |commit| commit["sha"] }
+    end
+    alias_method :commits, :commits_for
+
     def repos_for(username = nil)
       user = username || default_user
       request_url = "#{BASE_URL}/users/#{user}/repos"

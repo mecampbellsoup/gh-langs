@@ -1,6 +1,6 @@
 # Github Langs
 
-Using Ruby + D3.js, provide a real-time visualization of public GitHub repo commits ***by-language***.
+Using Ruby + D3.js, provide a real-time visualization of Flatiron School GitHub repo commits ***by-language***.
 
 ## Next Steps
 

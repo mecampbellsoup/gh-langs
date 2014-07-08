@@ -25,5 +25,15 @@ module GithubLangs
         client.repos_for("rafaelsales").must_include("https://github.com/rafaelsales/vim")
       end
     end
+
+    describe "#commits_for" do
+      it "returns a list of commits for the given repository assuming default user as author" do
+        client.commits_for("btc_price").must_include("7f3b09d8c7fc1ee444922424bdd48f5e00b07402")
+      end
+
+      it "takes an optional username argument to specify the commit's author" do
+        client.commits("vim", "rafaelsales").must_include("a37852240a776d1acb616cd5c2d49e489ae3a16b")
+      end
+    end
   end
 end
